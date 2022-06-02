@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                Log.d(TAG, "onFailure");
+                Log.d(TAG, "onFailure"); // do daefew
             }
         });
     }
