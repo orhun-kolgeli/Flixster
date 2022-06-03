@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, "Movies: " + movies.size());
                 }
                 catch (JSONException e) {
-                    Log.e(TAG, "onFailure");
+                    Log.e(TAG, "Hit json exception");
                 }
             }
 
