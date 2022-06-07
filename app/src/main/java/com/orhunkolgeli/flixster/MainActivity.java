@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     // Log at the info level
                     Log.i(TAG, "Results: " + results.toString());
                     movies.addAll(Movie.fromJsonArray(results));
+                    /******************************************************************************
+                     *  Bad practice? Why? What is the best alternative?
+                     *  Why is it necessary? What exactly does it accomplish?
+                     */
                     movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies: " + movies.size());
                 }

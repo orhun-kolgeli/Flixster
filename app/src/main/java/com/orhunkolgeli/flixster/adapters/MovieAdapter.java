@@ -35,16 +35,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
     // Usually involves inflating a layout from XML and returning the holder
+    /*********************************************************************************************
+     *  Why do we need to pass in ViewGroup parent as a parameter and use it in inflate method?
+     *  attachToRoot?
+     *  Is inflating just rendering a View or ViewGroup?
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // expensive
         Log.d(TAG, "onCreateViewHolder");
         // Inflating is expensive
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
-        return new ViewHolder(movieView);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        return new ViewHolder(view);
     }
 
     // Involves populating data into the item through holder
+    /*********************************************************************************************
+     *  How does binding differ from inflating
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) { // relatively cheap
         Log.d(TAG, "onBindViewHolder " + position);
@@ -53,9 +61,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
         // Bind the movie data into ViewHolder
         holder.bind(movie);
-
-        // Maybe: if rating > 6 then color=green;
-
     }
 
     // Returns the total count of items in the list

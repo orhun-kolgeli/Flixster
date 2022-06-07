@@ -6,8 +6,8 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.225" />
         <entry key="app/src/main/res/layout-land/item_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3790621550186821" />
-        <entry key="app/src/main/res/layout/activity_movie_details.xml" value="0.12892603850050657" />
-        <entry key="app/src/main/res/layout/item_movie.xml" value="0.19501800537109376" />
+        <entry key="app/src/main/res/layout/activity_movie_details.xml" value="0.36884608244581907" />
+        <entry key="app/src/main/res/layout/item_movie.xml" value="0.45" />
       </map>
     </option>
   </component>
