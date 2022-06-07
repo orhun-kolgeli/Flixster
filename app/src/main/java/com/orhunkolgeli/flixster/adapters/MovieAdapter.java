@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.orhunkolgeli.flixster.MovieDetailsActivity;
 import com.orhunkolgeli.flixster.R;
 import com.orhunkolgeli.flixster.models.Movie;
@@ -25,6 +27,7 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
     Context context;
     List<Movie> movies;
+    private static final String TAG = "MovieAdapter";
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
@@ -35,7 +38,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // expensive
-        Log.d("MovieAdapter", "onCreateViewHolder");
+        Log.d(TAG, "onCreateViewHolder");
         // Inflating is expensive
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
         return new ViewHolder(movieView);
@@ -44,7 +47,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) { // relatively cheap
-        Log.d("MovieAdapter", "onBindViewHolder " + position);
+        Log.d(TAG, "onBindViewHolder " + position);
         // Get the movie at the given position
         Movie movie = movies.get(position);
 
@@ -89,12 +92,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 imageUrl = movie.getBackdropPath();
                 placeholder = R.drawable.flicks_backdrop_placeholder;
 
-            }
-            else {
+            } else {
                 imageUrl = movie.getPosterPath();
                 placeholder = R.drawable.flicks_movie_placeholder;
 
             }
+            int radius = 30; // corner radius, higher value = more rounded
             Glide.with(context)
                     .load(imageUrl)
                     .placeholder(placeholder)

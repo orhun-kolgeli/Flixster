@@ -15,6 +15,7 @@ public class Movie { // no private qualifiers
     String title;
     String overview;
     Double voteAverage;
+    static final String BASE_URL = "https://image.tmdb.org/t/p/w342/";
 
     // No-arg, empty constructor required for Parceler
     public Movie() {}
@@ -39,12 +40,12 @@ public class Movie { // no private qualifiers
 
     public String getPosterPath() {
         // Hardcode the size as a shortcut (width = 342)
-        return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
+        return BASE_URL + posterPath;
     }
 
     public String getBackdropPath() {
         // Hardcode the size as a shortcut (width = 342)
-        return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+        return BASE_URL + backdropPath;
     }
 
     public String getTitle() {
